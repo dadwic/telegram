@@ -17,7 +17,8 @@ export default function DefaultChatMsg() {
   return (
     <div className={classes.root}>
       <ChatMsg
-        avatar={''}
+        avatar=""
+        side="left"
         messages={[
           'Hi Jenny, How r u today?',
           'Did you train yesterday',
@@ -25,13 +26,13 @@ export default function DefaultChatMsg() {
         ]}
       />
       <ChatMsg
-        side={'right'}
+        side="right"
         messages={[
           "Great! What's about you?",
           'Of course I did. Speaking of which check this out',
         ]}
       />
-      <ChatMsg avatar={''} messages={['Im good.', 'See u later.']} />
+      <ChatMsg avatar="" side="left" messages={['Im good.', 'See u later.']} />
     </div>
   );
 }

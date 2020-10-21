@@ -12,8 +12,12 @@ import data from 'data';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
+      padding: 0,
       width: '100%',
       maxWidth: '36ch',
+      position: 'relative',
+      overflow: 'auto',
+      maxHeight: 'calc(100vh - 48px)',
       backgroundColor: theme.palette.background.paper,
       borderRight: `1px solid ${theme.palette.divider}`,
     },

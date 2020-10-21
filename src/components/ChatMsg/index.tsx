@@ -9,23 +9,21 @@ import defaultChatMsgStyles from './defaultChatMsg.styles';
 interface IProps extends WithStyles {
   avatar?: string;
   messages: string[];
-  side?: 'left' | 'right';
+  side: 'left' | 'right';
   GridContainerProps?: object;
   GridItemProps?: object;
   AvatarProps?: any;
-  getTypographyProps?: (...args: any) => any;
 }
 
-const ChatMsg: React.SFC<IProps> = (props) => {
+const ChatMsg: React.FC<IProps> = (props) => {
   const {
     classes,
-    avatar = '',
-    messages = [],
-    side = 'left',
-    GridContainerProps = {},
-    GridItemProps = {},
-    AvatarProps = {},
-    getTypographyProps = () => {},
+    avatar,
+    messages,
+    side,
+    GridContainerProps,
+    GridItemProps,
+    AvatarProps,
   } = props;
 
   const attachClass = (index: number) => {
@@ -56,19 +54,13 @@ const ChatMsg: React.SFC<IProps> = (props) => {
       )}
       <Grid item xs={8}>
         {messages.map((msg: any, i: number) => {
-          const TypographyProps = getTypographyProps(msg, i, props);
+          // const TypographyProps = getTypographyProps(msg, i, props);
           return (
             // eslint-disable-next-line react/no-array-index-key
             <div key={msg.id || i} className={classes[`${side}Row`]}>
               <Typography
-                align={'left'}
-                {...TypographyProps}
-                className={cx(
-                  classes.msg,
-                  classes[side],
-                  attachClass(i),
-                  // TypographyProps.className
-                )}
+                align="left"
+                className={cx(classes.msg, classes[side], attachClass(i))}
               >
                 {msg}
               </Typography>
@@ -78,6 +70,15 @@ const ChatMsg: React.SFC<IProps> = (props) => {
       </Grid>
     </Grid>
   );
+};
+
+ChatMsg.defaultProps = {
+  avatar: '',
+  messages: [],
+  side: 'left',
+  GridContainerProps: {},
+  GridItemProps: {},
+  AvatarProps: {},
 };
 
 export default withStyles(defaultChatMsgStyles, {
