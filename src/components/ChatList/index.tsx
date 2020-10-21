@@ -7,7 +7,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
-import data from 'data';
+import { useAppState } from 'context';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -29,15 +29,16 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function AlignItemsList() {
   const classes = useStyles();
+  const states = useAppState();
 
   return (
     <List className={classes.root}>
-      {data.map((chat, key) => (
-        <>
+      {states.chats.map((chat: any, key: number) => (
+        <div key={chat.id}>
           <ListItem alignItems="flex-start" button>
             <ListItemAvatar>
               <Avatar
-                alt={chat.userName}
+                alt={chat.user.fullName}
                 src={`/static/images/avatar/${key + 1}.jpg`}
               />
             </ListItemAvatar>
@@ -59,7 +60,7 @@ export default function AlignItemsList() {
             />
           </ListItem>
           <Divider variant="inset" component="li" />
-        </>
+        </div>
       ))}
     </List>
   );
