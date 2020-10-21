@@ -53,20 +53,16 @@ const ChatMsg: React.FC<IProps> = (props) => {
         </Grid>
       )}
       <Grid item xs={8}>
-        {messages.map((msg: any, i: number) => {
-          // const TypographyProps = getTypographyProps(msg, i, props);
-          return (
-            // eslint-disable-next-line react/no-array-index-key
-            <div key={msg.id || i} className={classes[`${side}Row`]}>
-              <Typography
-                align="left"
-                className={cx(classes.msg, classes[side], attachClass(i))}
-              >
-                {msg}
-              </Typography>
-            </div>
-          );
-        })}
+        {messages.map((msg: any, i: number) => (
+          <div key={msg.id || i} className={classes[`${side}Row`]}>
+            <Typography
+              align="left"
+              className={cx(classes.msg, classes[side], attachClass(i))}
+            >
+              {msg}
+            </Typography>
+          </div>
+        ))}
       </Grid>
     </Grid>
   );

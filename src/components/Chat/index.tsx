@@ -33,6 +33,15 @@ export default function DefaultChatMsg() {
         ]}
       />
       <ChatMsg avatar="" side="left" messages={['Im good.', 'See u later.']} />
+      <ChatMsg
+        avatar=""
+        side="right"
+        messages={[
+          'Hi Mikel, How r u today?',
+          'Did you plane yesterday',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat lacus laoreet non curabitur gravida.',
+        ]}
+      />
     </div>
   );
 }
