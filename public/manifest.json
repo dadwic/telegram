@@ -1,6 +1,13 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "name": "Telegram",
+  "description": "Telegram Web App.\nMore info & source code here: https://github.com/dadwic/telegram",
+  "short_name": "Telegram",
+  "display": "standalone",
+  "theme_color": "#497495",
+  "gcm_sender_id": "122867383838",
+  "start_url": "./?utm_source=web_app_manifest",
+  "scope": "/",
+  "background_color": "#fff",
   "icons": [
     {
       "src": "favicon.ico",
@@ -18,8 +25,15 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "related_applications": [
+    {
+      "platform": "play",
+      "id": "org.telegram.messenger",
+      "url": "https://telegram.org/dl/android?ref=webmanifest"
+    },
+    {
+      "platform": "itunes",
+      "url": "https://telegram.org/dl/ios?ref=webmanifest"
+    }
+  ]
 }
