@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme: Theme) =>
       width: '100%',
       overflow: 'auto',
       position: 'relative',
-      maxHeight: 'calc(100vh - 48px)',
+      maxHeight: 'calc(100vh - 60px)',
       backgroundColor: theme.palette.background.paper,
       borderRight: `1px solid ${theme.palette.divider}`,
     },

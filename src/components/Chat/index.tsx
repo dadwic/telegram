@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme: Theme) =>
       overflow: 'auto',
       position: 'relative',
       maxHeight: 'calc(100vh - 96px)',
-      padding: theme.spacing(1),
+      padding: theme.spacing(2),
     },
   })
 );
@@ -19,7 +19,7 @@ export default function DefaultChatMsg() {
   return (
     <div className={classes.root}>
       <ChatMsg
-        avatar=""
+        avatar="/static/images/avatar/1.jpg"
         side="left"
         messages={[
           'Hi Jenny, How r u today?',
@@ -34,9 +34,13 @@ export default function DefaultChatMsg() {
           'Of course I did. Speaking of which check this out',
         ]}
       />
-      <ChatMsg avatar="" side="left" messages={['Im good.', 'See u later.']} />
       <ChatMsg
-        avatar=""
+        side="left"
+        avatar="/static/images/avatar/1.jpg"
+        messages={['Im good.', 'See u later.']}
+      />
+      <ChatMsg
+        avatar="/static/images/avatar/1.jpg"
         side="right"
         messages={[
           'Hi Mikel, How r u today?',
@@ -44,7 +48,11 @@ export default function DefaultChatMsg() {
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat lacus laoreet non curabitur gravida.',
         ]}
       />
-      <ChatMsg avatar="" side="left" messages={['Im good.', 'See u later.']} />
+      <ChatMsg
+        side="left"
+        avatar="/static/images/avatar/1.jpg"
+        messages={['Im good.', 'See u later.']}
+      />
     </div>
   );
 }

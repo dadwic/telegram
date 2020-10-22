@@ -7,9 +7,12 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import List from '@material-ui/core/List';
+import Grid from '@material-ui/core/Grid';
+import Avatar from '@material-ui/core/Avatar';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import GroupIcon from '@material-ui/icons/Group';
 import ContactsIcon from '@material-ui/icons/AccountBox';
 import SettingsIcon from '@material-ui/icons/Settings';
@@ -31,6 +34,11 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     list: {
       width: 250,
+    },
+    column: {
+      display: 'flex',
+      alignItems: 'center',
+      paddingLeft: theme.spacing(3),
     },
   })
 );
@@ -66,19 +74,47 @@ export default function ButtonAppBar() {
   return (
     <div className={classes.root}>
       <AppBar position="static" elevation={0}>
-        <Toolbar variant="dense">
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            onClick={toggleDrawer(true)}
-            className={classes.menuButton}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            Telegram
-          </Typography>
+        <Toolbar variant="dense" disableGutters>
+          <Grid container spacing={0}>
+            <Grid item xs={4} className={classes.column}>
+              <IconButton
+                edge="start"
+                color="inherit"
+                aria-label="menu"
+                onClick={toggleDrawer(true)}
+                className={classes.menuButton}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Typography variant="h6" className={classes.title}>
+                Telegram
+              </Typography>
+            </Grid>
+            <Grid item xs={8}>
+              <List dense disablePadding>
+                <ListItem alignItems="flex-start" button>
+                  <ListItemAvatar>
+                    <Avatar
+                      alt="Remy Sharp"
+                      src="/static/images/avatar/1.jpg"
+                    />
+                  </ListItemAvatar>
+                  <ListItemText
+                    primary="Brunch this weekend?"
+                    secondary={
+                      <Typography
+                        variant="body2"
+                        component="span"
+                        color="textSecondary"
+                      >
+                        Ali Connors
+                      </Typography>
+                    }
+                  />
+                </ListItem>
+              </List>
+            </Grid>
+          </Grid>
         </Toolbar>
       </AppBar>
       <SwipeableDrawer
