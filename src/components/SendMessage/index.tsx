@@ -2,9 +2,8 @@ import React from 'react';
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
 import InputBase from '@material-ui/core/InputBase';
 import IconButton from '@material-ui/core/IconButton';
+import Grow from '@material-ui/core/Grow';
 import SendIcon from '@material-ui/icons/Send';
-import MicIcon from '@material-ui/icons/MicNone';
-import AttachIcon from '@material-ui/icons/AttachFile';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -32,27 +31,30 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function SendMessage() {
   const classes = useStyles();
+  const [message, setMessage] = React.useState('');
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setMessage(event.target.value);
+  };
 
   return (
     <div className={classes.root}>
       <InputBase
         fullWidth
+        value={message}
+        onChange={handleChange}
         className={classes.input}
         placeholder="Send message..."
       />
-      <IconButton aria-label="record" className={classes.iconButton}>
-        <AttachIcon />
-      </IconButton>
-      <IconButton aria-label="Attach file" className={classes.iconButton}>
-        <MicIcon />
-      </IconButton>
-      <IconButton
-        type="submit"
-        className={classes.iconButton}
-        aria-label="search"
-      >
-        <SendIcon />
-      </IconButton>
+      <Grow in={Boolean(message)}>
+        <IconButton
+          type="submit"
+          className={classes.iconButton}
+          aria-label="search"
+        >
+          <SendIcon />
+        </IconButton>
+      </Grow>
     </div>
   );
 }
