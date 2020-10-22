@@ -14,9 +14,8 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       padding: 0,
       width: '100%',
-      maxWidth: '36ch',
-      position: 'relative',
       overflow: 'auto',
+      position: 'relative',
       maxHeight: 'calc(100vh - 48px)',
       backgroundColor: theme.palette.background.paper,
       borderRight: `1px solid ${theme.palette.divider}`,
@@ -31,16 +30,17 @@ export default function AlignItemsList() {
   const classes = useStyles();
   const states = useAppState();
 
+  const getUserById = (id: number) => {
+    return states.users.find((user: any) => user.id === id);
+  };
+
   return (
     <List className={classes.root}>
       {states.chats.map((chat: any, key: number) => (
         <div key={chat.id}>
           <ListItem alignItems="flex-start" button>
             <ListItemAvatar>
-              <Avatar
-                alt={chat.user.fullName}
-                src={`/static/images/avatar/${key + 1}.jpg`}
-              />
+              <Avatar src={`/static/images/avatar/${key + 1}.jpg`} />
             </ListItemAvatar>
             <ListItemText
               primary="Brunch this weekend?"
@@ -52,7 +52,7 @@ export default function AlignItemsList() {
                     className={classes.inline}
                     color="textPrimary"
                   >
-                    Ali Connors
+                    {getUserById(chat.userId).fullName}
                   </Typography>
                   {" — I'll be in your neighborhood doing errands this…"}
                 </React.Fragment>

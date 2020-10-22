@@ -5,8 +5,10 @@ import ChatMsg from 'components/ChatMsg';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      marginTop: theme.spacing(2),
-      paddingRight: theme.spacing(2),
+      overflow: 'auto',
+      position: 'relative',
+      maxHeight: 'calc(100vh - 96px)',
+      padding: theme.spacing(1),
     },
   })
 );
@@ -42,6 +44,7 @@ export default function DefaultChatMsg() {
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat lacus laoreet non curabitur gravida.',
         ]}
       />
+      <ChatMsg avatar="" side="left" messages={['Im good.', 'See u later.']} />
     </div>
   );
 }

@@ -5,12 +5,16 @@ import Grid from '@material-ui/core/Grid';
 import ChatList from 'components/ChatList';
 import Chat from 'components/Chat';
 import AppFrame from 'components/AppFrame';
+import SendMessage from 'components/SendMessage';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       borderLeft: `1px solid ${theme.palette.divider}`,
       borderRight: `1px solid ${theme.palette.divider}`,
+    },
+    chatCol: {
+      position: 'relative',
     },
   })
 );
@@ -29,11 +33,12 @@ export default function MainPage() {
         <Grid item xs={12}>
           <AppFrame />
         </Grid>
-        <Grid item md={4}>
+        <Grid item xs={4}>
           <ChatList />
         </Grid>
-        <Grid item md={8}>
+        <Grid item xs={8} className={classes.chatCol}>
           <Chat />
+          <SendMessage />
         </Grid>
       </Grid>
     </Container>

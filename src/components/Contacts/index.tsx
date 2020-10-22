@@ -64,16 +64,16 @@ export default function FullScreenDialog(props: any) {
         </Toolbar>
       </AppBar>
       <List className={classes.root}>
-        {states.chats.map((chat: any, key: number) => (
+        {states.users.map((user: any, key: number) => (
           <ListItem button key={key}>
             <ListItemAvatar>
               <Avatar
-                alt={chat.user.fullName}
+                alt={user.fullName}
                 src={`/static/images/avatar/${key + 1}.jpg`}
               />
             </ListItemAvatar>
             <ListItemText
-              primary={chat.user.fullName}
+              primary={user.fullName}
               secondary={
                 <React.Fragment>
                   <Typography
